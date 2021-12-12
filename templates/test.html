@@ -1,0 +1,10 @@
+<form action="." method="POST">
+{%csrf_token%}
+<input type="text" name="title" id="input" placeholder="Title">
+<input type="submit" value="ADD">
+</form>
+<ul>
+{%for t in todo reversed%}
+<li>{{t.title}}</li><span><button><a href="{%url 'todoapp:delete' t.id%}">DELETE</a></button></span>
+{%endfor%}
+</ul>

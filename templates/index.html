@@ -1,0 +1,21 @@
+
+{%extends "base.html"%}
+{%load static%}
+{%block title%}TO DO App{%endblock%}
+{%block content%}
+    <form class="form-1" action="." method="POST">
+    {%csrf_token%}
+    <input class="imp-1" type="text" name="title" id="input" placeholder="Title">
+    <button type="submit" class="btn btn-dark">ADD</button>
+    </form>
+    <ul class="list-group ul-1">
+    {%for t in todo reversed%}
+        
+        <li style="text-align:center;" class="list-group-item">{{t.title}}</li><button type="submit" class="btn btn-dark"><a href="{%url 'todoapp:delete' t.id%}">DELETE</a></button></span>
+
+    {%endfor%}
+    </ul>
+    <div class="div">
+        <img src="{% static 'to do.jpg'%}">
+    </div>
+{%endblock%}
